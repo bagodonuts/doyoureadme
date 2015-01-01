@@ -1,0 +1,67 @@
+<!-- Begin Contact Section -->
+<section id="contact-details">
+  <div itemscope itemtype="http://schema.org/Person">
+
+    <!-- Begin Profile Image Section -->
+    <div class="header_1">
+      <%#
+      <img src="asset/images/profile.jpg" itemprop="image" width="250" height="250" alt="Jim Berrettini" />
+      %>
+      <%= image_tag "profile.jpg", itemprop: "image", width: "250",
+      height: "250", alt: "Jim Berrettini" %>
+    </div>
+    <!-- End Profile Image Section -->
+
+    <!-- Begin Profile Information Section -->
+    <div class="header_2">
+
+      <h1 itemprop="name">Jim Berrettini</h1>
+      <h3 class="jobTitle" itemprop="jobTitle">Technology Consultant</h3>
+
+      <!-- Begin PostalAddress Schema -->
+      <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+        <ul class="info_1">
+          <li class="address"><span itemprop="streetAddress">72 Montross Avenue</span>, <span itemprop="addressLocality">Rutherford</span>, <span itemprop="addressRegion">New Jersey</span>, <span itemprop="postalCode">07070</span> <span itemprop="addressCountry">United States</span></li>
+        </ul>
+      </div>
+      <!-- End PostalAddress Schema -->
+
+      <ul class="info_2">
+        <li class="phone"><span itemprop="telephone">(917) 484-0471</span></li>
+        <li class="email"><a href="mailto:james.berrettini@gmail.com" itemprop="email">james.berrettini@gmail.com</a></li>
+        <li class="site_url"><a rel="me" itemprop="url" href="http://www.doyoureadme.com/" title="www.doyoureadme.com">www.doyoureadme.com</a></li>
+        <li class="twitter"><a rel="me" itemprop="url" href="http://twitter.com/bagodonuts" title="Follow Me on Twitter">@bagodonuts</a></li>
+      </ul>
+
+    </div>
+    <!-- End Profile Information Section -->
+
+  </div>
+</section>
+<!-- End Contact Section -->
+
+<!-- Begin Social Media and Download Links -->
+<div itemscope itemtype="http://schema.org/Person">
+
+  <ul class="icons_1">
+    <li><a rel="author" itemprop="url" href="https://plus.google.com/u/0/+JamesBerrettini/about" title="Google Profile"><img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32" alt="Google Profile"></a></li>
+    <li><a rel="me" itemprop="url" href="http://dribbble.com/" title="Dribbble"><%= image_tag "dribbble-ball.png", width: "32", height: "32", alt: "Dribbble" %></a></li>
+    <li><a rel="me" itemprop="url" href="http://www.linkedin.com/" title="LinkedIn"><img src="images/linkedin.png" width="32" height="32" alt="LinkedIn" /></a></li>
+    <li><a rel="me" itemprop="url" href="http://www.facebook.com/" title="Facebook"><img src="images/facebook.png" width="32" height="32" alt="Facebook" /></a></li>
+    <li><a rel="me" itemprop="url" href="http://www.flickr.com/" title="Flickr"><img src="images/flickr.png" width="32" height="32" alt="Flickr" /></a></li>
+    <li><a rel="me" itemprop="url" href="http://twitter.com/" title="Follow Me on Twitter!"><img src="images/twitter.png" width="32" height="32" alt="Follow Me on Twitter!" /></a></li>
+  </ul>
+
+  <ul class="icons_2">
+    <li><a href="resume.pdf" title="Download Resume PDF"><img src="images/download.png" width="48" height="48" alt="Download Resume PDF" /></a></li>
+  </ul>
+
+</div>
+<!-- End Social Media and Download Links -->
+<script>
+$(document).ready(
+  function(){
+    $(".jobTitle").text("Eats Lightning, Craps Thunder");
+  }
+);
+</script>
