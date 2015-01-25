@@ -50,3 +50,5 @@ end
 
 # Heroku recommends:
 gem 'rails_12factor'
+
+gem 'puma'
