@@ -48,6 +48,10 @@ group :development do
   gem 'rails_layout'
 end
 
+group :test, :development do
+  gem 'rspec-rails'
+end
+
 # Heroku recommends:
 gem 'rails_12factor'
 
