@@ -11,9 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150125030534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "seminars", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "tutor"
+    t.string   "conference_url"
+    t.datetime "starts_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
