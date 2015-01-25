@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.6'
+gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use PostgreSQL as the database for Active Record
@@ -47,3 +47,6 @@ gem 'foundation-rails', '5.4.3.1'
 group :development do
   gem 'rails_layout'
 end
+
+# Heroku recommends:
+gem 'rails_12factor'
