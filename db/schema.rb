@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(version: 20150125030534) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "seminars", force: true do |t|
-    t.string   "title"
-    t.string   "description"
-    t.string   "tutor"
-    t.string   "conference_url"
+  create_table "seminars", force: :cascade do |t|
+    t.string   "title",          limit: 255
+    t.string   "description",    limit: 255
+    t.string   "tutor",          limit: 255
+    t.string   "conference_url", limit: 255
     t.datetime "starts_at"
     t.datetime "created_at"
     t.datetime "updated_at"

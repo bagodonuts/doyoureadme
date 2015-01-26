@@ -50,9 +50,16 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'factory_girl_rails', "~> 4.0"
+end
+
+group :test do
+  gem 'capybara'
 end
 
 # Heroku recommends:
-gem 'rails_12factor'
+group :production do
+  gem 'rails_12factor'
+end
 
 gem 'puma'
