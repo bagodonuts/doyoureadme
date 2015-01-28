@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   get 'seminars' => 'seminars#index'
+  get 'seminars/:id' => 'seminars#show', as: 'seminar'
+  patch 'seminars/:id' => 'seminars#update'
+  get 'seminars/:id/edit' => 'seminars#edit', as: 'edit_seminar'
 
   get 'welcome' => 'welcome#index'
   get 'about' => 'about#index'
