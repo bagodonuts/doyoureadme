@@ -13,9 +13,23 @@ class SeminarsController < ApplicationController
 
   def update
     @seminar = Seminar.find(params[:id])
-    seminar_params = params.require(:seminar).
-                            permit(:title, :description, :tutor, :conference_url, :starts_at)
     @seminar.update(seminar_params)
     redirect_to @seminar
+  end
+
+  def new
+    @seminar = Seminar.new
+  end
+
+  def create
+    @seminar = Seminar.new(seminar_params)
+    @seminar.save
+    redirect_to @seminar
+  end
+  
+  private
+  def seminar_params
+    params.require(:seminar).
+      permit(:title, :description, :tutor, :conference_url, :starts_at)
   end
 end

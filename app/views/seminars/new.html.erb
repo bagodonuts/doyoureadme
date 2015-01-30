@@ -1,0 +1,25 @@
+<%= form_for(@seminar) do |f| %>
+<p>
+  <%= f.label :title %><br/>
+  <%= f.text_field :title %>
+</p>
+<p>
+  <%= f.label :description %><br/>
+  <%= f.text_field :description %>
+</p>
+<p>
+  <%= f.label :tutor %><br/>
+  <%= f.text_field :tutor %>
+</p>
+<p>
+  <%= f.label :conference_url, "Conference URL" %><br/>
+  <%= f.text_field :conference_url %>
+</p>
+<p>
+  <%= f.label :starts_at %><br/>
+  <%= f.datetime_local_field :starts_at %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>
