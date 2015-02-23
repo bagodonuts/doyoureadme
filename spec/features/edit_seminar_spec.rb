@@ -1,7 +1,9 @@
 require "rails_helper"
 
-feature "User clicks to edit a seminar" do
+feature "Authenticated user clicks to edit a seminar" do
   before(:each) do
+    user = FactoryGirl.create(:user)
+    login_as(user, scope: :user)
     @seminar = go_to_seminar_edit_page
   end
 

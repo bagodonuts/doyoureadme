@@ -1,6 +1,12 @@
 require 'rails_helper'
 
-feature "User clicks to create a new seminar" do
+feature "Signed-in user clicks to create a new seminar" do
+
+  before(:each) do
+    user = FactoryGirl.create(:user)
+    login_as(user, scope: :user)
+  end
+
   scenario "they save the seminar and see the new seminar's details" do
     visit seminars_url
 

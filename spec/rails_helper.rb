@@ -47,4 +47,8 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
+  # Warden includes some test helpers for Capybara specs.
+  config.include Warden::Test::Helpers, type: :feature
+  Warden.test_mode!
 end

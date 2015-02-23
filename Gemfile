@@ -48,6 +48,7 @@ gem 'foundation-rails', '5.4.3.1'
 
 group :development do
   gem 'rails_layout'
+  gem 'byebug', '~> 3.5.1'
 end
 
 group :test, :development do
@@ -65,3 +66,5 @@ group :production do
 end
 
 gem 'puma'
+
+gem 'devise'

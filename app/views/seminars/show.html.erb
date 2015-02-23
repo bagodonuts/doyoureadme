@@ -1,6 +1,8 @@
 <article>
   <h2><%= @seminar.title %></h2>
+  <% if user_signed_in? %>
   <p><%= link_to "Edit", edit_seminar_path(@seminar)%></p>
+  <% end %>
 </article>
 
 <%= link_to "All Seminars", seminars_path %>
