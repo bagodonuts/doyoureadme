@@ -2,6 +2,8 @@
   <h2><%= @seminar.title %></h2>
   <% if user_signed_in? %>
   <p><%= link_to "Edit", edit_seminar_path(@seminar)%></p>
+  <p><%= link_to "Add to My Seminars", add_seminar_path(current_user, @seminar),
+         method: :patch %></p>
   <% end %>
 </article>
 

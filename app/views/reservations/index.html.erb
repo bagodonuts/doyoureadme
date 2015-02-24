@@ -1,0 +1,7 @@
+<h1>Reservations</h1>
+<ul>
+  <% @seminars.each do |seminar| %>
+  <li><strong><%= link_to seminar.title, seminar %></strong> led by <%= seminar.tutor %>
+    at <%= seminar.starts_at %>.</li>
+  <% end %>
+</ul>

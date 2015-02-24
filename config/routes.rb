@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  get 'schedule/add'
+
+  devise_for :users, path: "accounts"
+
+  resources :users do
+    resources :reservations
+  end
+
   resources :seminars
+
+  patch '/users/:user_id/schedule/:seminar_id' => 'reservations#add', as: :add_seminar
+  put   '/users/:user_id/schedule/:seminar_id' => 'reservations#add'
 
   get 'welcome' => 'welcome#index'
   get 'about' => 'about#index'
