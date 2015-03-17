@@ -1,7 +1,13 @@
-<h1>Reservations</h1>
+<h2>Reservations</h2>
 <ul>
-  <% @seminars.each do |seminar| %>
+  <% @reservations.each do |reservation|
+       seminar = reservation.seminar
+    %>
   <li><strong><%= link_to seminar.title, seminar %></strong> led by <%= seminar.tutor %>
-    at <%= seminar.starts_at %>.</li>
+    at <%= seminar.starts_at %>.
+    <%= link_to "Cancel",
+                                     user_reservation_path(@user, reservation),
+                                     method: :delete %>
+  </li>
   <% end %>
 </ul>

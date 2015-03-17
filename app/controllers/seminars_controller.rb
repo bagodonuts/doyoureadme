@@ -1,6 +1,6 @@
 class SeminarsController < ApplicationController
   def index
-    @seminars = Seminar.all
+    @seminars = Seminar.order(:starts_at)
   end
 
   def show
@@ -26,7 +26,7 @@ class SeminarsController < ApplicationController
     @seminar.save
     redirect_to @seminar
   end
-  
+
   private
   def seminar_params
     params.require(:seminar).

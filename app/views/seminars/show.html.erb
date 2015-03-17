@@ -1,10 +1,24 @@
 <article>
-  <h2><%= @seminar.title %></h2>
+  <h2><%= @seminar.title %> </h2>
   <% if user_signed_in? %>
-  <p><%= link_to "Edit", edit_seminar_path(@seminar)%></p>
-  <p><%= link_to "Add to My Seminars", add_seminar_path(current_user, @seminar),
-         method: :patch %></p>
+    <%= link_to "Edit", edit_seminar_path(@seminar)%><br/>
+    <%#link_to "Add to My Seminars", user_reservations_path(current_user, @seminar),
+           method: :post %>
+    <%= form_for current_user.reservations.build, url: user_reservations_path(current_user) do |f| %>
+    <%= hidden_field_tag :seminar_id, @seminar.id  %>
+    <%= f.submit "Add to My Seminars"%>
+    <% end %>
   <% end %>
+  <p>
+    <ul>
+      <li>Tutor: <%= @seminar.tutor%></li>
+      <li>Starts: <%= @seminar.starts_at %> </li>
+      <li>Conference URL: <%= link_to @seminar.conference_url, @seminar.conference_url,
+                              target: "_blank" %></li>
+    </ul>
+  </p>
+  <h3>Description</h3>
+  <p><%= @seminar.description %></p>
 </article>
 
 <%= link_to "All Seminars", seminars_path %>

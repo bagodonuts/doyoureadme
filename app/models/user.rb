@@ -13,6 +13,6 @@ class User < ActiveRecord::Base
 
   # associations
   has_many :reservations
-  has_many :seminars, through: :reservations
+  has_many :seminars, -> { order 'seminars.starts_at' },through: :reservations
 
 end
