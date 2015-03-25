@@ -4,9 +4,15 @@
     <%= link_to "Edit", edit_seminar_path(@seminar)%><br/>
     <%#link_to "Add to My Seminars", user_reservations_path(current_user, @seminar),
            method: :post %>
-    <%= form_for current_user.reservations.build, url: user_reservations_path(current_user) do |f| %>
-    <%= hidden_field_tag :seminar_id, @seminar.id  %>
-    <%= f.submit "Add to My Seminars"%>
+    <% unless current_user.reserved? @seminar %>
+      <%= form_for current_user.reservations.build, url: user_reservations_path(current_user) do |f| %>
+      <%= hidden_field_tag :seminar_id, @seminar.id  %>
+      <%= f.submit "Add to My Seminars"%>
+      <% end %>
+    <% else %>
+    <%= link_to "Cancel", user_reservation_path(current_user, Reservation.where(user: current_user,
+                                                                                seminar: @seminar).take!),
+                method: :delete %>
     <% end %>
   <% end %>
   <p>

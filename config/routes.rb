@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :seminars do
-    resources :reservations
+    resources :attendees
   end
 
   patch '/users/:user_id/schedule/:seminar_id' => 'reservations#add', as: :add_seminar
