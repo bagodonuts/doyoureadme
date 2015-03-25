@@ -4,7 +4,8 @@ RSpec.describe AttendeesController, :type => :controller do
 
   describe "GET index" do
     it "returns http success" do
-      get :index
+      seminar = FactoryGirl.create(:seminar)
+      get :index, {seminar_id: seminar.id }
       expect(response).to have_http_status(:success)
     end
   end
