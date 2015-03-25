@@ -1,2 +1,9 @@
-<h1>Attendees#index</h1>
-<p>Find me in app/views/attendees/index.html.erb</p>
+<h1>Attendees for <%= @seminar.title %></h1>
+
+<p>
+  <ul>
+    <% @attendees.each do |attendee| %>
+    <li><%= attendee.name %></li>
+    <% end %>
+  </ul>
+</p>
