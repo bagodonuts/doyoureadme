@@ -72,3 +72,5 @@ end
 gem 'puma'
 
 gem 'devise'
+
+gem 'newrelic_rpm'
