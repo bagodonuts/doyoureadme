@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224181126) do
+ActiveRecord::Schema.define(version: 20150401192055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,13 +28,16 @@ ActiveRecord::Schema.define(version: 20150224181126) do
 
   create_table "seminars", force: :cascade do |t|
     t.string   "title",          limit: 255
-    t.string   "description",    limit: 255
+    t.text     "description"
     t.string   "tutor",          limit: 255
     t.string   "conference_url", limit: 255
     t.datetime "starts_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "host_id"
   end
+
+  add_index "seminars", ["host_id"], name: "index_seminars_on_host_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

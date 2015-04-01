@@ -5,5 +5,6 @@ FactoryGirl.define do
     tutor "Very Cool Tutor"
     conference_url "http://zoom.us/path"
     starts_at DateTime.new()
+    association :host, factory: :user, email: "bozo@theclown.com"
   end
 end

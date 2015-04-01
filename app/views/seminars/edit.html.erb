@@ -1,5 +1,9 @@
 <h1>Editing Seminar: <%= @seminar.title %></h1>
-<%= form_for(@seminar) do |f| %>
+<%= form_for @seminar do |f| %>
+<fieldset>
+<% if @seminar.errors.count > 0 %>
+<small class="error"><%= @seminar.errors.full_messages.to_sentence %></small>
+<% end %>
 <p>
   <%= f.label :title %><br/>
   <%= f.text_field :title %>
@@ -23,4 +27,5 @@
 <p>
   <%= f.submit %>
 </p>
+</fieldset>
 <% end %>

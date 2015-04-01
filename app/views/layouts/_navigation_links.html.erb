@@ -1,3 +1,12 @@
 <%# add navigation links to this file %>
-<li class="name"><%= link_to 'Seminars', { controller: "/seminars", action: "index" } %></li>
-<li class="name"><%= link_to 'About', { controller: "/about", action: "index" } %></li>
+<li class="has-dropdown"><%= link_to 'Seminars', { controller: "/seminars", action: "index" } %>
+  <ul class="dropdown">
+    <li><%= link_to 'Show All Seminars', { controller: "/seminars", action: "index" } %></li>
+    <% if user_signed_in? %>
+    <li>
+      <%= link_to(current_user.name + "'s Seminars", user_reservations_path(current_user))  %>
+    </li>
+    <% end %>
+  </ul>
+</li>
+<li><%= link_to 'About', { controller: "/about", action: "index" } %></li>

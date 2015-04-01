@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   # associations
   has_many :reservations
   has_many :seminars, -> { order 'seminars.starts_at' },through: :reservations
+  has_many :hosted_seminars, class_name: "Seminar"
 
   def reserved?(seminar)
     self.seminars.include? seminar

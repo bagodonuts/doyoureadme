@@ -13,8 +13,12 @@ class SeminarsController < ApplicationController
 
   def update
     @seminar = Seminar.find(params[:id])
-    @seminar.update(seminar_params)
-    redirect_to @seminar
+    @seminar.host ||= current_user
+    if @seminar.update(seminar_params)
+      redirect_to @seminar
+    else
+      render :edit
+    end
   end
 
   def new
@@ -23,8 +27,12 @@ class SeminarsController < ApplicationController
 
   def create
     @seminar = Seminar.new(seminar_params)
-    @seminar.save
-    redirect_to @seminar
+    @seminar.host = current_user
+    if @seminar.save
+      redirect_to @seminar
+    else
+      render :new
+    end
   end
 
   private
