@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
   def reserved?(seminar)
     self.seminars.include? seminar
   end
+
+  def host?(seminar)
+    seminar.host.eql? self
+  end
 end

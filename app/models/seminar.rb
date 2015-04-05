@@ -7,5 +7,6 @@ class Seminar < ActiveRecord::Base
   validates_presence_of :title
   validates :starts_at, presence: true
   validates_presence_of :host
+  validates_presence_of :capacity
 
 end

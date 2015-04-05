@@ -6,5 +6,6 @@ FactoryGirl.define do
     conference_url "http://zoom.us/path"
     starts_at DateTime.new()
     association :host, factory: :user, email: "bozo@theclown.com"
+    capacity 12
   end
 end

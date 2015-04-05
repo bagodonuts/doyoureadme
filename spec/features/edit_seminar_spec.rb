@@ -4,7 +4,11 @@ feature "Authenticated user clicks to edit a seminar" do
   before(:each) do
     user = FactoryGirl.create(:user)
     login_as(user, scope: :user)
-    @seminar = go_to_seminar_edit_page
+    @seminar = FactoryGirl.build(:seminar)
+    @seminar.host = user
+    @seminar.save
+    visit seminar_url(@seminar)
+    click_link 'Edit'
   end
 
   scenario "they land on the edit page for the seminar" do
@@ -35,11 +39,4 @@ feature "Authenticated user clicks to edit a seminar" do
     expect(current_path).to eq(seminar_path(@seminar))
   end
 
-
-  def go_to_seminar_edit_page
-    seminar = FactoryGirl.create(:seminar)
-    visit seminar_url(seminar)
-    click_link 'Edit'
-    seminar
-  end
 end

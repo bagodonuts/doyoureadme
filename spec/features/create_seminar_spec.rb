@@ -19,6 +19,7 @@ feature "Signed-in user clicks to create a new seminar" do
     fill_in "Tutor", with: "Adam Sandler"
     fill_in "Conference URL", with: "http://zoom.us/path"
     fill_in "Starts at", with: DateTime.now.to_s
+    fill_in "Capacity", with: 15
 
     #select (Time.now.year - 1).to_s, :from => "movie_released_on_1i"
 

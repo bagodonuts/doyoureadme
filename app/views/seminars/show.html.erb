@@ -1,7 +1,10 @@
 <article>
   <h2><%= @seminar.title %> </h2>
   <% if user_signed_in? %>
-    <%= link_to "Edit", edit_seminar_path(@seminar)%><br/>
+    <% if current_user.host? @seminar %>
+      <%= link_to "Edit", edit_seminar_path(@seminar)%><br/>
+      <%= link_to "Delete", seminar_path(@seminar), method: :delete %>
+    <% end %>
     <%#link_to "Add to My Seminars", user_reservations_path(current_user, @seminar),
            method: :post %>
     <% unless current_user.reserved? @seminar %>
@@ -10,7 +13,7 @@
       <%= f.submit "Add to My Seminars"%>
       <% end %>
     <% else %>
-    <%= link_to "Cancel", user_reservation_path(current_user, Reservation.where(user: current_user,
+    <%= link_to "Cancel Reservation", user_reservation_path(current_user, Reservation.where(user: current_user,
                                                                                 seminar: @seminar).take!),
                 method: :delete %>
     <% end %>
@@ -27,4 +30,4 @@
   <p><%= @seminar.description %></p>
 </article>
 
-<%= link_to "All Seminars", seminars_path %>
+<%# <%= link_to "All Seminars", seminars_path %>

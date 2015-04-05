@@ -38,6 +38,6 @@ class SeminarsController < ApplicationController
   private
   def seminar_params
     params.require(:seminar).
-      permit(:title, :description, :tutor, :conference_url, :starts_at)
+      permit(:title, :description, :tutor, :conference_url, :starts_at, :capacity)
   end
 end

@@ -31,6 +31,9 @@ RSpec.describe Seminar, type: :model do
     desc = "x" * 1024
     @seminar.description = desc
     expect(@seminar).to be_valid
-    expect(@seminar.save).to be_true    
+  end
+  it "should not be valid without a capacity" do
+    @seminar.capacity = nil
+    expect(@seminar).not_to be_valid
   end
 end
