@@ -1,10 +1,10 @@
 <article>
   <h2><%= @seminar.title %> </h2>
   <% if user_signed_in? %>
-    <% if current_user.host? @seminar %>
+    <%# if current_user.host? @seminar %>
       <%= link_to "Edit", edit_seminar_path(@seminar)%><br/>
       <%= link_to "Delete", seminar_path(@seminar), method: :delete %>
-    <% end %>
+    <%# end %>
     <%#link_to "Add to My Seminars", user_reservations_path(current_user, @seminar),
            method: :post %>
     <% unless current_user.reserved? @seminar %>
