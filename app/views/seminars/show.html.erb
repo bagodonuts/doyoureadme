@@ -24,6 +24,8 @@
       <li>Starts: <%= @seminar.starts_at %> </li>
       <li>Conference URL: <%= link_to @seminar.conference_url, @seminar.conference_url,
                               target: "_blank" %></li>
+      <li>Capacity: <%= @seminar.capacity %></li>
+      <li>Seats remaining: <%= @seminar.capacity - @seminar.reservations.count %></li>
     </ul>
   </p>
   <h3>Description</h3>
